@@ -4,8 +4,9 @@ Algoritmo Ejercicio_5
 	
 	
 	Escribir "*** BIENVENIDO AL JUEGO PIEDRA PAPEL O TIJERAS ***"
-	//Proceso
+	//Control.
 	Mientras sw = falso Hacer
+		//Validador de opciones.
 		Repetir
 			Escribir "Ingrese su opción:"
 			Escribir "0 <- Piedra"
@@ -16,7 +17,7 @@ Algoritmo Ejercicio_5
 				Escribir "Ingrese una opción valida"
 			FinSi
 		Hasta Que resp >= 0 y resp <= 2
-		
+		//Proceso.
 		maquina <- azar(2)
 		Segun maquina hacer
 			0:
@@ -56,14 +57,22 @@ Algoritmo Ejercicio_5
 					Escribir "Empate"
 				FinSi
 		FinSegun
-		Escribir "¿Deseas seguir jugando?"
-		Escribir "1 <- Si"
-		Escribir "2 <- No"
-		Leer resp_sw
-		si resp_sw = 2 Entonces
-			sw <- Verdadero
-		FinSi
-		Limpiar Pantalla
+		//Validador para continuar
+		Repetir
+			Escribir "¿Deseas seguir jugando?"
+			Escribir "1 <- Si"
+			Escribir "2 <- No"
+			Leer resp_sw
+			Segun resp_sw hacer
+				1:
+					Escribir "Juguemos"
+				2:
+					Escribir "Hasta la próxima"
+					sw <- Verdadero
+				De Otro Modo:
+					Escribir "Ingrese una opción valida"
+			FinSegun
+		Hasta Que resp_sw = 1 o resp_sw = 2
 	FinMientras
 FinAlgoritmo
 
